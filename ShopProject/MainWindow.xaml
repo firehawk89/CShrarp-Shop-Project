@@ -1,0 +1,52 @@
+﻿<Window x:Class="ShopProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopProject" xmlns:data="clr-namespace:ShopProject.Data.Users" d:DataContext="{d:DesignInstance Type=data:User}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="450" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF89A1DF">
+        <ScrollViewer>
+            <StackPanel>
+                <Canvas Margin="0,0,0,50">
+                    <StackPanel Canvas.Top="10" Canvas.Left="10">
+                        <TextBlock x:Name="name" Text="{Binding StringFormat=Name: {0}, Path=Name}" Margin="0,0,0,0" FontFamily="Cascadia Code" FontSize="14" HorizontalAlignment="Left" />
+                        <TextBlock x:Name="balance" Text="{Binding StringFormat=Balance: {0}, Path=Balance}" Margin="0,0,0,0" FontFamily="Cascadia Code" FontSize="14" HorizontalAlignment="Left" />
+                    </StackPanel>
+                    <Button x:Name="logOutBtn" Content="Log Out" Canvas.Top="10" Canvas.Right="10" HorizontalAlignment="Right" Padding="5" MinHeight="30" FontFamily="Cascadia Code" FontSize="14" Click="logOutBtn_Click" />
+                </Canvas>
+                <TextBlock Text="Price List" Margin="0,20,0,0" FontFamily="Cascadia Code" FontSize="18" HorizontalAlignment="Center" />
+                <ListBox Name="products" Margin="0,15,0,0" HorizontalContentAlignment="Center" BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock FontFamily="Cascadia Code" FontSize="14" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                                <TextBlock Margin="10,0,0,0" FontFamily="Cascadia Code" FontSize="14" Text="{Binding StringFormat=Ціна: {0}, Path=Price}" HorizontalAlignment="Center" />
+                                <TextBlock Margin="10,0,0,0" FontFamily="Cascadia Code" FontSize="14" Text="{Binding StringFormat=Кількість: {0}, Path=Quantity}" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="makePurchaseBtn" Content="Buy product" HorizontalAlignment="Center" Margin="0,20,0,0" MinWidth="140" MinHeight="30" FontFamily="Cascadia Code" FontSize="18" Click="makePurchaseBtn_Click" />
+                <StackPanel Margin="0,25,0,0">
+                    <TextBlock Text="Enter deposit value:" Margin="0,0,0,0" HorizontalAlignment="Center" FontSize="16" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="depositValue" PreviewTextInput="NumericTextInput" MaxLength="5" TextWrapping="NoWrap" Width="100" Margin="0,10,0,0" FontFamily="Cascadia Code" FontSize="16" Padding="3" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Button x:Name="depositBtn" Content="Make deposit" HorizontalAlignment="Center" Margin="0,10,0,0" MinWidth="140" MinHeight="30" FontFamily="Cascadia Code" FontSize="18" Click="depositBtn_Click" />
+                </StackPanel>
+                <TextBlock Text="Purchase History" Margin="0,25,0,0" FontFamily="Cascadia Code" FontSize="18" HorizontalAlignment="Center" />
+                <ListBox Name="purchases" Margin="0,20,0,30" HorizontalContentAlignment="Center" BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock FontFamily="Cascadia Code" FontSize="14" Text="{Binding Path=ProductName}" HorizontalAlignment="Center" />
+                                <TextBlock FontFamily="Cascadia Code" FontSize="14" Text="{Binding StringFormat=Кількість: {0}, Path=ProductQuantity}" HorizontalAlignment="Center" />
+                                <TextBlock FontFamily="Cascadia Code" FontSize="14" Text="{Binding StringFormat=Ціна: {0},Path=Price}" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="ShopProject.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopProject"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="420" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFA6DF89">
+        <StackPanel>
+            <TextBlock Text="Registration" Margin="0,50,0,0" FontFamily="Cascadia Code" FontSize="30" HorizontalAlignment="Center" />
+            <TextBlock Text="Choose account type:" Margin="0,20,0,3" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="16"/>
+            <StackPanel x:Name="stackPanel" Margin="-100,5,0,0" HorizontalAlignment="Center">
+                <RadioButton x:Name="standart" GroupName="UserType" Content="Standart" Margin="0,0,0,5" IsChecked="True" FontFamily="Cascadia Code" FontSize="14" Checked="RadioButton_Checked"/>
+                <RadioButton x:Name="vip" GroupName="UserType" Content="VIP" FontFamily="Cascadia Code" FontSize="14" Checked="RadioButton_Checked"/>
+            </StackPanel>
+            <TextBlock Text="Username" Margin="-110,15,0,3" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="16"/>
+            <TextBox x:Name="username" HorizontalAlignment="Center" TextWrapping="Wrap" MinWidth="190" FontFamily="Cascadia Code" FontSize="16" Padding="3" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Password" Margin="-110,10,0,3" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="16" />
+            <PasswordBox x:Name="password"  HorizontalAlignment="Center" MinWidth="190" FontFamily="Cascadia Code" FontSize="16" Padding="3" VerticalContentAlignment="Center"/>
+            <Button x:Name="SubmitBtn" Content="Submit" HorizontalAlignment="Center" Margin="0,30,0,0" Click="submitBtn_Click" MinWidth="150" MinHeight="30" FontFamily="Cascadia Code" FontSize="18" />
+        </StackPanel>
+    </Grid>
+</Window>

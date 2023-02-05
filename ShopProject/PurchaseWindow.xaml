@@ -1,0 +1,26 @@
+﻿<Window x:Class="ShopProject.PurchaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopProject"
+        mc:Ignorable="d"
+        Title="PurchaseWindow" Height="220" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFDFDA89">
+        <StackPanel>
+            <TextBlock Text="Select product" Margin="0,30,0,0" FontFamily="Cascadia Code" FontSize="14" HorizontalAlignment="Center" />
+            <ComboBox Name="products" Margin="35,5,35,0" SelectionChanged="products_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontFamily="Cascadia Code" FontSize="14" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <StackPanel Margin="35,10,35,0" Orientation="Horizontal">
+                <TextBlock Text="Enter quantity" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="14"/>
+                <TextBox x:Name="quantity" PreviewTextInput="NumericTextInput" Margin="0,5,0,3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="50" FontFamily="Cascadia Code" FontSize="16" Padding="3" VerticalContentAlignment="Center" />
+            </StackPanel>
+            <Button x:Name="submitBtn" Content="Submit" HorizontalAlignment="Center" Margin="0,10,0,0" Click="submitBtn_Click" MinWidth="150" MinHeight="30" FontFamily="Cascadia Code" FontSize="18" />
+        </StackPanel>
+    </Grid>
+</Window>
